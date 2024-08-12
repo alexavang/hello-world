@@ -14,8 +14,8 @@ app.get('/', async (req, res) => {
         model: 'gemini-1.5-flash'
     });
 
-    const animal = req.query.animal || 'dog';
-    const prompt = `Give me 10 fun facts about ${animal}. Return this as html without backticks.`
+    const country = req.query.country || 'Japan';
+    const prompt = `Give me 10 fun facts about ${country}. Return this as html without backticks.`
     const resp = await generativeModel.generateContent(prompt);
     const html = resp.response.candidates[0].content.parts[0].text;
     res.send(html);
